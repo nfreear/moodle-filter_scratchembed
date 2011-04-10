@@ -86,6 +86,10 @@ function _scratchembed_markup($conf) {
     global $CFG;
     $license_icon = "$CFG->wwwroot/filter/scratchembed/cc-by-sa.png";
 
+    $str_attrib = get_string('attrib', 'filter_scratchembed', $conf->author);
+    $str_rights = get_string('rights', 'filter_scratchembed');
+    $str_nojava = get_string('nojava', 'filter_scratchembed');
+
     // This is a Java Applet embedded using <object> that is compatible with
     // HTML5, and backwards compatible with all browsers.
     //     See, http://freear.org.uk/content/embed-scratch-applet-html5
@@ -97,10 +101,10 @@ function _scratchembed_markup($conf) {
  <param name="archive" value="$conf->archive" />
  <param name="code" value="$conf->code" />
  <param name="project" value="$conf->project_url" /><!--Scratch params. -->
- <pre>[ Your browser needs Java enabled to view Scratch projects. ]</pre>
+ <pre>[ $str_nojava ]</pre>
  <img alt="" src="$conf->image_url" />
-</object><div>Explore <a rel="bookmark" href="$conf->page_url">the project by $conf->author on Scratch</a> &bull;
-<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:34px;" href="http://scratch.mit.edu/pages/license">Some rights reserved</a></div> 
+</object><div><a rel="bookmark" href="$conf->page_url">$str_attrib</a> &bull;
+<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:35px;" href="http://scratch.mit.edu/pages/license">$str_rights</a></div>
 </div>
 
 EOF;
