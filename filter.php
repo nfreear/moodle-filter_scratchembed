@@ -1,13 +1,13 @@
 <?php
 /**
  * Scratch Embed
- * A Moodle filter to embed MIT Scratch projects from the galleries at
+ * A Moodle filter to embed Scratch projects hosted at
  *     http://mit.scratch/edu/galleries/
  *
  * Compatible with Moodle 1.9 and 2.0.
  *
- * NOTE: this software is in no way endorsed by or affiliated with
- *     the official MIT Scratch project.
+ * NOTICE: this software is in no way endorsed by or affiliated with
+ *     the official MIT Scratch project or team.
  *
  * @category  Moodle4-9
  * @author    N.D.Freear, April 2011 <nfreear @ yahoo.co.uk>
@@ -61,12 +61,8 @@ function _scratchembed_callback($matches) {
     $defaults = array(
       'codebase'=> 'http://scratch.mit.edu/static/misc',
       'archive' => 'ScratchApplet.jar',
-      'code'    => 'ScratchApplet', #.class.
-      /*'author'=> 'technoguyx',
-      'project_id'=> 355353,
-      'project_url'=>'../../static/projects/technoguyx/355353.sb',
-      'image_url' => "$proj_base/technoguyx/355353_med.png",
-      'thumb_url' => "$proj_base/technoguyx/355353_sm.png",*/
+      'code'    => 'ScratchApplet', //(.class)
+      'license' => 'http://scratch.mit.edu/pages/license',
     );
 
     $config['page_url'] = $matches[1];
@@ -95,7 +91,7 @@ function _scratchembed_markup($conf) {
     //     See, http://freear.org.uk/content/embed-scratch-applet-html5
     $newtext = <<<EOF
 
-<div class="scratchembed" >
+<div class="scratchembed">
 <object tabindex="0" type="application/x-java-applet" height="387" width="482">
  <param name="codebase" value="$conf->codebase" /><!--Generic Applet params. -->
  <param name="archive" value="$conf->archive" />
@@ -104,7 +100,7 @@ function _scratchembed_markup($conf) {
  <pre>[ $str_nojava ]</pre>
  <img alt="" src="$conf->image_url" />
 </object><div><a rel="bookmark" href="$conf->page_url">$str_attrib</a> &bull;
-<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:35px;" href="http://scratch.mit.edu/pages/license">$str_rights</a></div>
+<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:36px;" href="$license">$str_rights</a></div>
 </div>
 
 EOF;
