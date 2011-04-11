@@ -1,0 +1,8 @@
+# Use glob syntax.
+syntax: glob
+
+.git*
+*/Thumbs.db
+.DS_Store
+
+
