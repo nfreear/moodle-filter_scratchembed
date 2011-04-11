@@ -8,9 +8,9 @@ NOTICE: this software is in no way endorsed by or affiliated with the official M
 Installation
 ------------
 To install (on Moodle 2):
-# Un-compress the Zip, and copy the 'scratchembed' folder to your moodle/filter/ directory.
-# Login to Moodle as admin, go to Site Administration | Plugins | Filters | Manage Filters.
-# Choose 'On' in the drop-down menu next to 'Scratch embed'.
+1. Un-compress the Zip, and copy the 'scratchembed' folder to your moodle/filter/ directory.
+2. Login to Moodle as admininstrator, go to Site Administration | Plugins | Filters | Manage Filters.
+3. Choose 'On' in the drop-down menu next to 'Scratch embed'.
 
 Usage
 -----
