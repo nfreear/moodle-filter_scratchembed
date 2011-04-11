@@ -1,7 +1,7 @@
 Scratch embed
 =============
 
-This is a simple filter to embed Scratch projects hosted at, http://mit.scratch/edu/galleries/
+This is a simple filter to embed Scratch projects using a Java applet. The software projects are hosted at, <http://mit.scratch/edu/galleries/>
 
 NOTICE: this software is in no way endorsed by or affiliated with the official MIT Scratch project or team.
 
@@ -11,7 +11,7 @@ To install (on Moodle 2):
 
 1. Un-compress the Zip, and copy the 'scratchembed' folder to your moodle/filter/ directory.
 2. Login to Moodle as admininstrator, go to Site Administration | Plugins | Filters | Manage Filters.
-3. Choose 'On' in the drop-down menu next to 'Scratch embed'.
+3. Choose 'On' or 'Off but available' in the drop-down menu next to 'Scratch embed'.
 
 Usage
 -----
@@ -20,15 +20,16 @@ The syntax to embed a project:
 
 Links
 -----
-* "Why square brackets?", http://bitbucket.org/nfreear/timelinewidget/src/tip/filter.php#cl-36
-* Code: <https://github.com/nfreear/moodle-block_scratchembed>
-* Also: <https://bitbucket.org/nfreear/scratchembed>
+* Code, Git: <https://github.com/nfreear/moodle-block_scratchembed>
+* Also, Hg:  <https://bitbucket.org/nfreear/scratchembed>
 * Demo (todo): <http://freear.org.uk/moodle>
+* "Why square brackets?", <http://bitbucket.org/nfreear/timelinewidget/src/tip/filter.php#cl-36>
 
 Notes
 -----
 * Tested in Moodle 1.9.7 and 2.0.2.
 * No javascript, no database access - very simple!
+* The ScratchApplet Java applet must be in the same domain as the Scratch project.
 * Filter syntax is case-insensitive.
 * The plug-in is internationalized in Moodle 1.9 and 2.
 * If there is demand I'll look at embedding locally hosted Scratch projects (.sb files).
@@ -37,5 +38,6 @@ Notes
 Notices
 -------
 Scratch embed. (c) 2011 Nicholas Freear.
- * License: <http://www.gnu.org/copyleft/gpl.html> GNU GPL v2 or later.
+
+* License: <http://www.gnu.org/copyleft/gpl.html> GNU GPL v2 or later.
 
