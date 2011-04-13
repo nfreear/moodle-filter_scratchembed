@@ -1,7 +1,7 @@
 Scratch embed
 =============
 
-This is a simple filter to embed Scratch projects using a Java applet. The software projects are hosted at, <http://mit.scratch/edu/galleries/>
+A Moodle filter plug-in to embed Scratch projects using the Scratch Java applet. It embeds community software projects hosted at, <http://scratch.mit.edu/galleries>
 
 NOTICE: this software is in no way endorsed by or affiliated with the official MIT Scratch project or team.
 
@@ -9,8 +9,8 @@ Installation
 ------------
 To install (on Moodle 2):
 
-1. Un-compress the Zip, and copy the 'scratchembed' folder to your moodle/filter/ directory.
-2. Login to Moodle as admininstrator, go to Site Administration | Plugins | Filters | Manage Filters.
+1. Un-compress the Zip/Gzip archive, and copy the folder renamed 'scratchembed' to your moodle/filter/ directory.
+2. Log in to Moodle as admininstrator, go to Site Administration | Plugins | Filters | Manage Filters.
 3. Choose 'On' or 'Off but available' in the drop-down menu next to 'Scratch embed'.
 
 Usage
@@ -33,7 +33,7 @@ Notes
 * Filter syntax is case-insensitive.
 * The plug-in is internationalized in Moodle 1.9 and 2.
 * If there is demand I'll look at embedding locally hosted Scratch projects (.sb files).
-* Similarly, I may look at alternative filter syntax.
+* Similarly, I may look at an alternative filter syntax.
 
 Notices
 -------
