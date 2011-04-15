@@ -16,11 +16,13 @@ To install (on Moodle 2):
 Usage
 -----
 The syntax to embed a project:
+
     [Scratch] http://scratch.mit.edu/projects/technoguyx/355353 [/Scratch]
 
 Links
 -----
-* Code, Git: <https://github.com/nfreear/moodle-block_scratchembed>
+* Moodle plugin page: <http://moodle.org/mod/data/view.php?d=13&rid=4714>
+* Code, Git: <https://github.com/nfreear/moodle-filter_scratchembed>
 * Also, Hg:  <https://bitbucket.org/nfreear/scratchembed>
 * Demo (todo): <http://freear.org.uk/moodle>
 * "Why square brackets?", <http://bitbucket.org/nfreear/timelinewidget/src/tip/filter.php#cl-36>
@@ -37,7 +39,7 @@ Notes
 
 Notices
 -------
-Scratch embed. (c) 2011 Nicholas Freear.
+Scratch embed, Copyright © 2011 Nicholas Freear.
 
 * License: <http://www.gnu.org/copyleft/gpl.html> GNU GPL v2 or later.
 
