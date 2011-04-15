@@ -107,10 +107,6 @@ $script
 </div></div>
 
 EOF;
-    /*Styles.
-    style="background:url(http://scratch.mit.edu/favicon.ico)no-repeat bottom left;"
-    style="padding:0 18px;"
-    */
     return $newtext;
 }
 
@@ -124,31 +120,20 @@ function _filter_scratchembed_panel_script($conf) {
     $str_embedbtn= get_string('embedbutton', 'filter_scratchembed');
     $str_toembed = get_string('toembed', 'filter_scratchembed');
 
+    //Involved!  http://docs.moodle.org/en/Development:JavaScript_guidelines
     $script ='';
 
-    //Involved!  http://docs.moodle.org/en/Development:JavaScript_guidelines
-    /*global $PAGE;
-    if (is_object($PAGE)) {
-      $jsmodule = array(
-          'name'     => 'filter_scratchembed',
-          'fullpath' => '/filter/scratchembed/module.js',
-          'requires' => array('yahoo', 'dom', 'event', 'container'),
-        );
-        $PAGE->requires->js_init_call('M.filter_scratchembed.init', null, true, $jsmodule);
-    }
-    else*/
-
     if (1==$count) {
-        // Moodle 2.
         $yui_dir = $CFG->dirroot."/lib/yui/2.8.2/build/";
         if (file_exists($yui_dir)) {
+            // Moodle 2.
             $yui_base = $CFG->wwwroot."/lib/yui/2.8.2/build";
         } else {
             // Moodle 1.9 fallback.
             $yui_base = $CFG->wwwroot."/lib/yui";
         }
 
-        // http://developer.yahoo.com/yui/container/panel/#start
+        // http://developer.yahoo.com/yui/container/panel/
         // http://developer.yahoo.com/yui/examples/container/panel.html
         //yui.yahooapis.com/2.9.0/build/container/assets/skins/sam/container.css
         //Optional draggable: $yui_base/dragdrop/dragdrop-min.js.
@@ -161,7 +146,7 @@ EOF;
     $script .= <<<EOF
   <div id="{$prefix}panel">
     <div class="hd">$str_toembed</div>
-	<pre class="bd">[Scratch] $conf->page_url [/Scratch]</pre><!--<div class="ft">Foot</div>--> 
+	<pre class="bd">[Scratch] $conf->page_url [/Scratch]</pre><!--<div class="ft">Foot</div>-->
   </div>
   <button id="{$prefix}show">$str_embedbtn</button>
   <script type="text/javascript">
