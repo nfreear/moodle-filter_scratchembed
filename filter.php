@@ -63,6 +63,7 @@ function _scratchembed_callback($matches) {
       'archive' => 'ScratchApplet.jar',
       'code'    => 'ScratchApplet', //(.class)
       'license' => 'http://scratch.mit.edu/pages/license',
+
     );
 
     $config['page_url'] = $matches[1];
@@ -85,13 +86,14 @@ function _scratchembed_markup($conf) {
     $str_attrib = get_string('attrib', 'filter_scratchembed', $conf->author);
     $str_rights = get_string('rights', 'filter_scratchembed');
     $str_nojava = get_string('nojava', 'filter_scratchembed');
+    $script = _filter_scratchembed_panel_script($conf);
 
     // This is a Java Applet embedded using <object> that is compatible with
     // HTML5, and backwards compatible with all browsers.
     //     See, http://freear.org.uk/content/embed-scratch-applet-html5
     $newtext = <<<EOF
 
-<div class="scratchembed">
+<div class="scratchembed  yui-skin-sam">
 <object tabindex="0" type="application/x-java-applet" height="387" width="482">
  <param name="codebase" value="$conf->codebase" /><!--Generic Applet params. -->
  <param name="archive" value="$conf->archive" />
@@ -100,8 +102,9 @@ function _scratchembed_markup($conf) {
  <pre>[ $str_nojava ]</pre>
  <img alt="" src="$conf->image_url" />
 </object><div><a rel="bookmark" href="$conf->page_url">$str_attrib</a> &bull;
-<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:36px;" href="$license">$str_rights</a></div>
-</div>
+<a rel="license" style="background:url($license_icon)no-repeat left; padding-left:35px;" href="http://scratch.mit.edu/pages/license">$str_rights</a>
+$script
+</div></div>
 
 EOF;
     /*Styles.
@@ -109,6 +112,67 @@ EOF;
     style="padding:0 18px;"
     */
     return $newtext;
+}
+
+/** Click a button to show embed code in a panel.
+*/
+function _filter_scratchembed_panel_script($conf) {
+    global $CFG;
+    static $count = 0;
+    $count++;
+    $prefix = "scratchem_{$count}_";
+    $str_embedbtn= get_string('embedbutton', 'filter_scratchembed');
+    $str_toembed = get_string('toembed', 'filter_scratchembed');
+
+    $script ='';
+
+    //Involved!  http://docs.moodle.org/en/Development:JavaScript_guidelines
+    /*global $PAGE;
+    if (is_object($PAGE)) {
+      $jsmodule = array(
+          'name'     => 'filter_scratchembed',
+          'fullpath' => '/filter/scratchembed/module.js',
+          'requires' => array('yahoo', 'dom', 'event', 'container'),
+        );
+        $PAGE->requires->js_init_call('M.filter_scratchembed.init', null, true, $jsmodule);
+    }
+    else*/
+
+    if (1==$count) {
+        // Moodle 2.
+        $yui_dir = $CFG->dirroot."/lib/yui/2.8.2/build/";
+        if (file_exists($yui_dir)) {
+            $yui_base = $CFG->wwwroot."/lib/yui/2.8.2/build";
+        } else {
+            // Moodle 1.9 fallback.
+            $yui_base = $CFG->wwwroot."/lib/yui";
+        }
+
+        // http://developer.yahoo.com/yui/container/panel/#start
+        // http://developer.yahoo.com/yui/examples/container/panel.html
+        //yui.yahooapis.com/2.9.0/build/container/assets/skins/sam/container.css
+        //Optional draggable: $yui_base/dragdrop/dragdrop-min.js.
+        $script .= <<<EOF
+<script src="$yui_base/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script src="$yui_base/container/container-min.js" type="text/javascript"></script>
+EOF;
+    }
+
+    $script .= <<<EOF
+  <div id="{$prefix}panel">
+    <div class="hd">$str_toembed</div>
+	<pre class="bd">[Scratch] $conf->page_url [/Scratch]</pre><!--<div class="ft">Foot</div>--> 
+  </div>
+  <button id="{$prefix}show">$str_embedbtn</button>
+  <script type="text/javascript">
+   YAHOO.namespace("scratch.em");
+   YAHOO.scratch.em.panel$count=new YAHOO.widget.Panel("{$prefix}panel", {width:"590px", visible:false, constraintoviewport:true});
+   YAHOO.scratch.em.panel$count.render();
+   YAHOO.util.Event.addListener("{$prefix}show", "click",
+   YAHOO.scratch.em.panel$count.show, YAHOO.scratch.em.panel$count, true);
+  </script>
+EOF;
+    return $script;
 }
 
 #End.
