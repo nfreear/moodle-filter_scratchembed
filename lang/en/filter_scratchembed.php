@@ -11,3 +11,5 @@ $string['filtername'] = 'Scratch embed';
 $string['attrib'] = 'Explore the Scratch project by {$a}';
 $string['rights'] = 'Some rights reserved';
 $string['nojava'] = 'Your browser needs Java enabled to view Scratch projects.';
+$string['embedbutton'] = 'Embed';
+$string['toembed']= 'To embed the Scratch project on this site copy:';
