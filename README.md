@@ -39,7 +39,10 @@ Notes
 
 Notices
 -------
-Scratch embed, Copyright © 2011 Nicholas Freear.
+Scratch embed plugin, Copyright © 2011 Nicholas Freear.
 
 * License: <http://www.gnu.org/copyleft/gpl.html> GNU GPL v2 or later.
 
+Scratch 1.4 Software, Copyright (c) 2009 Massachusetts Institute of Technology
+
+* License: <http://info.scratch.mit.edu/Scratch_License>
