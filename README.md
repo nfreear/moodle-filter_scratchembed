@@ -21,7 +21,8 @@ The syntax to embed a project:
 
 Links
 -----
-* Moodle plugin page: <http://moodle.org/mod/data/view.php?d=13&rid=4714>
+* Moodle plugin entry: <http://moodle.org/plugins/view.php?plugin=filter_scratchembed>
+* (Old plugin page: <http://moodle.org/mod/data/view.php?rid=4714>)
 * Code, Git: <https://github.com/nfreear/moodle-filter_scratchembed>
 * Also, Hg:  <https://bitbucket.org/nfreear/scratchembed>
 * Demo (todo): <http://freear.org.uk/moodle>
@@ -36,6 +37,7 @@ Notes
 * The plug-in is internationalized in Moodle 1.9 and 2.
 * If there is demand I'll look at embedding locally hosted Scratch projects (.sb files).
 * Similarly, I may look at an alternative filter syntax.
+* Consider config. switch for new Flash player, <http://scratch.mit.edu/forums/viewtopic.php?id=57153>
 
 Notices
 -------
